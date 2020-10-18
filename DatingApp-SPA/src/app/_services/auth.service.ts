@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {map} from 'rxjs/operators';
-import {User} from '../_models/user';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +15,7 @@ login(model: any)
     map((response: any) => {
       const user = response;
       if (user){
-        localStorage.setItem('user', user.token);
+        localStorage.setItem('token', user.token);
       }
     })
   );
