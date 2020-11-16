@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../_services/auth.service';
 import { AlertifyService } from '../_services/alertify.service';
 import {ToastrService} from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nav',
@@ -12,28 +13,37 @@ export class NavComponent implements OnInit {
 
   model: any = {};
 
-  constructor(public authService: AuthService, private alertify: AlertifyService,
+  constructor(private router: Router,
+              public authService: AuthService, private alertify: AlertifyService,
               private toastr: ToastrService) { }
 
+  // tslint:disable-next-line: typedef
   ngOnInit() {
   }
+  // tslint:disable-next-line: typedef
   login()
   {
    this.authService.login(this.model).subscribe(next => {
     this.alertify.success('logged in successfully');
    }, error => {
     this.alertify.error(error.error);
+   // tslint:disable-next-line: no-unused-expression
+   }, () => {
+     this.router.navigate(['/members']);
    });
   }
-
+  // tslint:disable-next-line: typedef
   loggedIn() {
     return this.authService.loggedIn();
   }
 
+  // tslint:disable-next-line: typedef
   logout()
   {
     localStorage.removeItem('token');
     this.alertify.error('logged Out');
+    this.router.navigate(['/home']);
+
   }
 
 }
