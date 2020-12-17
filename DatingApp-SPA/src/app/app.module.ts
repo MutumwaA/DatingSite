@@ -12,6 +12,7 @@ import { NgxGalleryModule } from '@kolkov/ngx-gallery';
 
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
+import { PhotoEditorComponent } from './members/photo-editor/photo-editor.component';
 import { MembersListComponent } from './members/members-list/members-list.component';
 import { MemberCardComponent } from './members/members-list/member-card/member-card.component';
 import { MemberDetailComponent } from './members/members-list/member-detail/member-detail.component';
@@ -27,6 +28,7 @@ import {ToastrModule} from 'ngx-toastr';
 import { ListsComponent } from './lists/lists.component';
 import { MessagesComponent } from './messages/messages.component';
 import { JwtModule } from '@auth0/angular-jwt';
+import { FileUploadModule } from 'ng2-file-upload';
 import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
 
 export function tokenGetter() {
@@ -44,7 +46,8 @@ export function tokenGetter() {
       MembersListComponent,
       MemberCardComponent,
       MemberDetailComponent,
-      MemberEditComponent   
+      MemberEditComponent,
+      PhotoEditorComponent  
    ],
    imports: [
       BrowserAnimationsModule,
@@ -52,6 +55,7 @@ export function tokenGetter() {
       BrowserModule,
       HttpClientModule,
       FormsModule,
+      FileUploadModule,
       TabsModule.forRoot(),
       RouterModule.forRoot(appRoutes),
       ToastrModule.forRoot({
