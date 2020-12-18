@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DattingApp.API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20201216131117_added-publicid")]
-    partial class addedpublicid
+    [Migration("20201218185259_initialmigration")]
+    partial class initialmigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -46,7 +46,7 @@ namespace DattingApp.API.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Photos");
+                    b.ToTable("Photo");
                 });
 
             modelBuilder.Entity("DattingApp.API.Models.User", b =>
