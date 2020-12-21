@@ -6,10 +6,14 @@ import {AuthService} from './_services/auth.service';
 import {TabsModule} from 'ngx-bootstrap/tabs';
 import {BsDatepickerModule} from 'ngx-bootstrap/datepicker';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import {PaginationModule} from 'ngx-bootstrap/pagination';
+import {ButtonsModule} from 'ngx-bootstrap/buttons';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { appRoutes } from '../app/routes';
 import { NgxGalleryModule } from '@kolkov/ngx-gallery';
+import { TimeagoModule } from 'ngx-timeago';
+ 
 
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
@@ -48,7 +52,7 @@ export function tokenGetter() {
       MemberCardComponent,
       MemberDetailComponent,
       MemberEditComponent,
-      PhotoEditorComponent  
+      PhotoEditorComponent
    ],
    imports: [
       BrowserAnimationsModule,
@@ -58,8 +62,11 @@ export function tokenGetter() {
       FormsModule,
       ReactiveFormsModule,
       FileUploadModule,
+      ButtonsModule.forRoot(),
+      PaginationModule.forRoot(),
       BsDatepickerModule.forRoot(),
       TabsModule.forRoot(),
+      TimeagoModule.forRoot(),
       RouterModule.forRoot(appRoutes),
       ToastrModule.forRoot({
         positionClass: 'toast-bottom-right'

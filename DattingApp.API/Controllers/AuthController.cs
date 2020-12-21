@@ -26,21 +26,8 @@ namespace DattingApp.API.Controllers
             _repo = repo;
             _mapper = mapper;
         }
-        // [HttpPost("register")]
-        // public async Task<IActionResult> Register(UserForRegisterDto userForRegisterDto)
-        // {
-        //     userForRegisterDto.Username = userForRegisterDto.Username.ToLower();
-        //     if(await _repo.UserExist(userForRegisterDto.Username))
-        //     return BadRequest("Username already exists");
-        //     var userToCreate = _mapper.Map<User>(userForRegisterDto);
-        //     var createduser = _repo.Register(userToCreate,userForRegisterDto.Password);
-        //     var userToReturn = _mapper.Map<UserForDetailedDto>(createduser);
 
-        //     return CreatedAtRoute("GetUser", new { controller= "Users", 
-        //     id = createduser.Id}, userToReturn);
-        // }
-
-              [HttpPost("register")]
+        [HttpPost("register")]
         public async Task<IActionResult> Register(UserForRegisterDto UserForRegisterDto)
         {
             UserForRegisterDto.Username = UserForRegisterDto.Username.ToLower();
